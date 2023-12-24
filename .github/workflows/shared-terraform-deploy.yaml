@@ -1,15 +1,14 @@
 name: 'Terraform Deploy'
 
-on:
-  push:
-    branches:
-      - main
+on: 
+  workflow_call:
 
-inputs:
-  terraform_version:
-    description: 'The version of Terraform to use'
-    required: true
-    default: '0.15.0'
+    inputs:
+      terraform_version:
+        description: 'The version of Terraform to use'
+        required: true
+        type: string
+        default: '1.5.0'
 
 jobs:
   deploy:
