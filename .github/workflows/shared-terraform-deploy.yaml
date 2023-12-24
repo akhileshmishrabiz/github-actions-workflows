@@ -6,13 +6,21 @@ on:
     inputs:
       terraform_version:
         description: 'The version of Terraform to use'
-        required: true
+        required: false
         type: string
         default: '1.5.0'
+      aws_region:
+        description: 'aws region to deploy resources'
+        required: true
+        type: string
+
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: ${{ inputs.aws_region }}
 
     steps:
       - name: Checkout Repository
